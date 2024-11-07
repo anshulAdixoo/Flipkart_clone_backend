@@ -1,17 +1,23 @@
-/* eslint-disable prettier/prettier */
+// user/user.entity.ts
 import { Entity, PrimaryGeneratedColumn, Column } from 'typeorm';
 
-@Entity('users') 
+@Entity('users')
 export class User {
   @PrimaryGeneratedColumn()
-  id: number; 
+  id: number;
+
+  // @Column()
+  // firstname: string;
+
+  // @Column()
+  // lastname: string;
 
   @Column()
-  name: string; 
+  name: string;
 
   @Column({ unique: true })
-  email: string; 
+  email: string;
 
   @Column()
-  password: string; 
+  password: string;
 }
