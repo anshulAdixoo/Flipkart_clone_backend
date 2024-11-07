@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 // auth/auth.service.ts
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
@@ -13,7 +14,7 @@ export class AuthService {
   constructor(
     @InjectRepository(User)
     private usersRepository: Repository<User>,
-    private jwtService: JwtService, // Inject JwtService for token generation
+    private jwtService: JwtService // Inject JwtService for token generation
   ) {}
 
   // Register a new user

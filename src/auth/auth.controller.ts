@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 // auth/auth.controller.ts
 import { Controller, Post, Body, Req } from '@nestjs/common';
 import { AuthService } from './auth.service';

@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 // src/users/user.service.ts
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
@@ -9,7 +10,7 @@ import * as bcrypt from 'bcrypt';
 export class UserService {
   constructor(
     @InjectRepository(User)
-    private readonly userRepository: Repository<User>, // User repository for database interactions
+    private readonly userRepository: Repository<User> // User repository for database interactions
   ) {}
 
   async create(userData: {
