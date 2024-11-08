@@ -1,10 +1,10 @@
-/* eslint-disable prettier/prettier */
-// app.module.ts
 import { Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { AuthModule } from './auth/auth.module';
 import { User } from './user/user.entity';
+import { Category } from './category/entities/category.entity';
+import { Subcategory } from './category/entities/subcategory.entity';
 import { CategoryModule } from './category/category.module';
 
 @Module({
@@ -20,7 +20,7 @@ import { CategoryModule } from './category/category.module';
       username: process.env.DB_USERNAME || 'postgres',
       password: process.env.DB_PASSWORD || 'Kaampardhyando',
       database: process.env.DB_NAME || 'flipkart_clone',
-      entities: [User],
+      entities: [User, Category, Subcategory], // Add Category and Subcategory
       synchronize: true,
     }),
     AuthModule,
