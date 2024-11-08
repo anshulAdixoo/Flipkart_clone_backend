@@ -6,6 +6,8 @@ import { User } from './user/user.entity';
 import { Category } from './category/entities/category.entity';
 import { Subcategory } from './category/entities/subcategory.entity';
 import { CategoryModule } from './category/category.module';
+import { CarouselModule } from './carousel/carousel.module';
+import { Carousel } from './carousel/entities/carousel.entity';
 
 @Module({
   imports: [
@@ -20,11 +22,13 @@ import { CategoryModule } from './category/category.module';
       username: process.env.DB_USERNAME || 'postgres',
       password: process.env.DB_PASSWORD || 'Kaampardhyando',
       database: process.env.DB_NAME || 'flipkart_clone',
-      entities: [User, Category, Subcategory], // Add Category and Subcategory
+      // eslint-disable-next-line prettier/prettier
+      entities: [User, Category, Subcategory,Carousel], // Add Category and Subcategory
       synchronize: true,
     }),
     AuthModule,
     CategoryModule,
+    CarouselModule,
   ],
 })
 export class AppModule {}

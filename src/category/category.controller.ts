@@ -9,7 +9,7 @@ export class CategoryController {
   @Post()
   async createCategory(
     @Body('name') name: string,
-    @Body('subcategories') subcategories: string[],
+    @Body('subcategories') subcategories: string[]
   ) {
     return this.categoryService.createCategory(name, subcategories);
   }

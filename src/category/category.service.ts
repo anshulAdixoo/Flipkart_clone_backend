@@ -9,12 +9,12 @@ import { Subcategory } from './entities/subcategory.entity';
 export class CategoryService {
   constructor(
     @InjectRepository(Category)
-    private categoryRepository: Repository<Category>,
+    private categoryRepository: Repository<Category>
   ) {}
 
   async createCategory(
     name: string,
-    subcategories: string[],
+    subcategories: string[]
   ): Promise<Category> {
     const category = new Category();
     category.name = name;
