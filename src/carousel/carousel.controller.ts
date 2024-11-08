@@ -13,5 +13,9 @@ export class CarouselController {
     return this.carouselService.createCarouselAd(carouselDto);
   }
 
-
+  // Endpoint to fetch all active carousel ads
+  @Get()
+  async getActiveCarouselAds() {
+    return this.carouselService.getActiveCarouselAds();
+  }
 }

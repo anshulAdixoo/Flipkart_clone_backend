@@ -19,4 +19,9 @@ export class CarouselService {
     carouselAd.redirectUrl = redirectUrl;
     return this.carouselRepository.save(carouselAd);
   }
+
+  // Method to fetch all active carousel ads
+  async getActiveCarouselAds(): Promise<Carousel[]> {
+    return this.carouselRepository.find({ where: { isActive: true } });
+  }
 }
