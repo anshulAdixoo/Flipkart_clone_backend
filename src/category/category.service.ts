@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
@@ -23,5 +24,9 @@ export class CategoryService {
       return subcategory;
     });
     return this.categoryRepository.save(category);
+  }
+
+  async getCategories(): Promise<Category[]> {
+    return this.categoryRepository.find({ relations: ['subcategories'] });
   }
 }

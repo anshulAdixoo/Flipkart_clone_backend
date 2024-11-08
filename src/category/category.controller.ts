@@ -14,4 +14,8 @@ export class CategoryController {
     return this.categoryService.createCategory(name, subcategories);
   }
 
+  @Get()
+  async getCategories() {
+    return this.categoryService.getCategories();
+  }
 }
