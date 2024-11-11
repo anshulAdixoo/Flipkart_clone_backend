@@ -1,3 +1,4 @@
+// src/category/entities/category.entity.ts
 import { Entity, Column, PrimaryGeneratedColumn, OneToMany } from 'typeorm';
 import { Subcategory } from './subcategory.entity';
 
@@ -8,6 +9,9 @@ export class Category {
 
   @Column()
   name: string;
+
+  @Column({ nullable: true })
+  categoryImage: string; // New field for storing category image URL
 
   @OneToMany(() => Subcategory, (subcategory) => subcategory.category, {
     cascade: true,

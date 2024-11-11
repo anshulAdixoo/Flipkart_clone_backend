@@ -1,5 +1,4 @@
 /* eslint-disable prettier/prettier */
-// auth/dto/register.dto.ts
 import { IsEmail, IsString, MinLength } from 'class-validator';
 
 export class RegisterDto {

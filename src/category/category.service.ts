@@ -1,4 +1,5 @@
 /* eslint-disable prettier/prettier */
+// src/category/category.service.ts
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
@@ -9,15 +10,17 @@ import { Subcategory } from './entities/subcategory.entity';
 export class CategoryService {
   constructor(
     @InjectRepository(Category)
-    private categoryRepository: Repository<Category>
+    private categoryRepository: Repository<Category>,
   ) {}
 
   async createCategory(
     name: string,
-    subcategories: string[]
+    subcategories: string[],
+    categoryImage: string,
   ): Promise<Category> {
     const category = new Category();
     category.name = name;
+    category.categoryImage = categoryImage; // Assign category image URL
     category.subcategories = subcategories.map((sub) => {
       const subcategory = new Subcategory();
       subcategory.name = sub;
