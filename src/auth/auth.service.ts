@@ -1,5 +1,4 @@
-/* eslint-disable prettier/prettier */
-// auth/auth.service.ts
+// auth.service.ts
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
@@ -46,9 +45,15 @@ export class AuthService {
       throw new Error('Invalid credentials');
     }
 
-    const payload = { username: user.name, sub: user.id }; // JWT payload
-    const accessToken = this.jwtService.sign(payload); // Generate JWT token
+    const payload = {
+      username: user.name,
+      sub: user.id,
+      lastActivity: Date.now(), // Add timestamp for last activity
+    }; // JWT payload
+    const accessToken = this.jwtService.sign(payload, { expiresIn: '1h' }); // Generate JWT token
 
     return { accessToken };
   }
+
+  
 }
