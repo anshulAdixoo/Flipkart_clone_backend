@@ -8,6 +8,10 @@ import { Subcategory } from './category/entities/subcategory.entity';
 import { CategoryModule } from './category/category.module';
 import { CarouselModule } from './carousel/carousel.module';
 import { Carousel } from './carousel/entities/carousel.entity';
+import { PaymentModule } from './payment/payment.module';
+import { Payment } from './payment/entities/payment.entity';
+import { CartModule } from './cart/cart.module';
+import { Cart } from './cart/entities/cart.entity';
 
 @Module({
   imports: [
@@ -17,18 +21,20 @@ import { Carousel } from './carousel/entities/carousel.entity';
     }),
     TypeOrmModule.forRoot({
       type: 'postgres',
-      host: process.env.DB_HOST || 'localhost',
-      port: parseInt(process.env.DB_PORT, 10) || 5432,
-      username: process.env.DB_USERNAME || 'postgres',
-      password: process.env.DB_PASSWORD || 'Kaampardhyando',
-      database: process.env.DB_NAME || 'flipkart_clone',
+      host: 'localhost',
+      port:  5432,
+      username: 'postgres',
+      password: 'Admin',
+      database: 'flipkart_db',
       // eslint-disable-next-line prettier/prettier
-      entities: [User, Category, Subcategory,Carousel], // Add Category and Subcategory
+      entities: [User, Category, Subcategory,Carousel,Payment,Cart], // Add Category and Subcategory
       synchronize: true,
     }),
     AuthModule,
     CategoryModule,
     CarouselModule,
+    PaymentModule,
+    CartModule
   ],
 })
 export class AppModule {}

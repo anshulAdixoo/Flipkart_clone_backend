@@ -1,23 +1,16 @@
-// user/user.entity.ts
 import { Entity, PrimaryGeneratedColumn, Column } from 'typeorm';
 
-@Entity('users')
+@Entity('users') // Links this entity to the "users" table in the database
 export class User {
-  @PrimaryGeneratedColumn()
+  @PrimaryGeneratedColumn() // Automatically generates a unique identifier for each user
   id: number;
 
-  // @Column()
-  // firstname: string;
-
-  // @Column()
-  // lastname: string;
-
-  @Column()
+  @Column({ nullable: false }) // Name cannot be null
   name: string;
 
-  @Column({ unique: true })
+  @Column({ unique: true, nullable: false }) // Email must be unique and not null
   email: string;
 
-  @Column()
+  @Column({ nullable: false }) // Password cannot be null
   password: string;
 }

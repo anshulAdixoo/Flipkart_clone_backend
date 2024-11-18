@@ -13,6 +13,7 @@ export class CategoryController {
     @Body('subcategories') subcategories: string[],
     @Body('categoryImage') categoryImage: string, // Add category image to the request body
   ) {
+    
     return this.categoryService.createCategory(name, subcategories, categoryImage);
   }
 
