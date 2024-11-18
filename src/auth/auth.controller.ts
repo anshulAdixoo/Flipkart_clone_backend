@@ -1,9 +1,10 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 // auth/auth.controller.ts
-import { Controller, Post, Body, Req } from '@nestjs/common';
+import { Controller, Post, Body, Req, Res } from '@nestjs/common';
 import { AuthService } from './auth.service';
 import { RegisterDto } from './dto/register.dto';
 import { LoginDto } from './dto/login.dto';
+import { Response } from 'express';
 
 @Controller('auth')
 export class AuthController {
@@ -17,8 +18,19 @@ export class AuthController {
   }
 
   @Post('login')
-  async login(@Body() loginDto: LoginDto) {
-    return this.authService.login(loginDto);
+  async login(@Body() loginDto: LoginDto,@Res() res: Response) {
+    const response=await this.authService.login(loginDto);
+    console.log(response);
+    res.cookie('auth_token', response.accessToken, {
+      httpOnly: true,  // Ensure the cookie is not accessible via JavaScript
+      secure: true,  // Use secure cookies in production (HTTPS)
+      maxAge: 3600000,  // Set cookie expiry to 1 hour (or adjust as needed)
+    });
+    return res.status(200).json({
+      message:"logged in",
+      success:true,
+      token:response.accessToken
+    })
   }
   @Post('logout')
   async logout(@Req() req) {
