@@ -20,7 +20,7 @@ export class AuthController {
     res.cookie('auth_token', response.accessToken, {
       httpOnly: true,
       secure: true, // Ensure cookies are sent over HTTPS
-      maxAge: 300, // Cookie expiration set to 1 hour
+      maxAge: 10000, // Cookie expiration set to 1 hour
     });
     return res.status(200).json({
       message: 'Logged in successfully',
