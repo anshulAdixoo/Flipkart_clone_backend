@@ -6,11 +6,11 @@ import { Carousel } from './carousel/entities/carousel.entity';
 
 export const AppDataSource = new DataSource({
   type: 'postgres',
-  host: process.env.DB_HOST || 'localhost',
-  port: parseInt(process.env.DB_PORT, 10) || 5432,
-  username: process.env.DB_USERNAME || 'postgres',
-  password: process.env.DB_PASSWORD || 'postgres',
-  database: process.env.DB_NAME || 'flipkart_clone',
+  host:  'localhost',
+  port:  5432,
+  username:  'postgres',
+  password:  'Admin',
+  database: 'flipkart_clone',
   entities: [Category, Subcategory,Carousel], // Added Subcategory here
   synchronize: true,
 });

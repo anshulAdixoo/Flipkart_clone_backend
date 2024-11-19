@@ -17,11 +17,11 @@ import { Carousel } from './carousel/entities/carousel.entity';
     }),
     TypeOrmModule.forRoot({
       type: 'postgres',
-      host: process.env.DB_HOST || 'localhost',
-      port: parseInt(process.env.DB_PORT, 10) || 5432,
-      username: process.env.DB_USERNAME || 'postgres',
-      password: process.env.DB_PASSWORD || 'Kaampardhyando',
-      database: process.env.DB_NAME || 'flipkart_clone',
+      host: 'localhost',
+      port: 5432,
+      username: 'postgres',
+      password:  'Admin',
+      database: 'flipkart_clone',
       // eslint-disable-next-line prettier/prettier
       entities: [User, Category, Subcategory,Carousel], // Add Category and Subcategory
       synchronize: true,
