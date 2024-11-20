@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 // src/category/dto/category.dto.ts
 export class CategoryDto {
   name: string;

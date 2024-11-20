@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 /* eslint-disable @typescript-eslint/no-unused-vars */
 // auth/auth.controller.ts
 import { Controller, Post, Body, Req, Res } from '@nestjs/common';
