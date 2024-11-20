@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 // src/category/entities/category.entity.ts
 import { Entity, Column, PrimaryGeneratedColumn, OneToMany } from 'typeorm';
 import { Subcategory } from './subcategory.entity';
